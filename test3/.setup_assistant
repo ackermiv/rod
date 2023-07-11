@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ros_scara_v8
+    relative_path: urdf/ros_scara_v8.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ros_scara_v8.srdf
+  CONFIG:
+    author_name: ivo
+    author_email: i.a@gmx.at
+    generated_timestamp: 1688980652
