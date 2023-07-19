@@ -139,10 +139,8 @@ include_directories(
   ${EIGEN3_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME} 
-    #src/main_sf.cpp 
-    #src/main_achs.cpp 
-    src/main.cpp
+add_executable(${PROJECT_NAME}_scara
+    src/main_scara.cpp
     include/imgui/imgui.cpp 
     include/imgui/imgui_draw.cpp
     include/imgui/imgui_tables.cpp
@@ -150,11 +148,41 @@ add_executable(${PROJECT_NAME}
     include/imgui/backends/imgui_impl_glfw.cpp
     include/imgui/backends/imgui_impl_opengl3.cpp
 )
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
-target_link_libraries(${PROJECT_NAME} glfw)
-target_link_libraries(${PROJECT_NAME} ${OPENGL_gl_LIBRARY})
-target_link_libraries(${PROJECT_NAME} ${OPENGL_glu_LIBRARY})
-target_include_directories(${PROJECT_NAME} PUBLIC include/imgui include/imgui/backends ${OPENGL_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME}_scara ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_scara glfw)
+target_link_libraries(${PROJECT_NAME}_scara ${OPENGL_gl_LIBRARY})
+target_link_libraries(${PROJECT_NAME}_scara ${OPENGL_glu_LIBRARY})
+target_include_directories(${PROJECT_NAME}_scara PUBLIC include/imgui include/imgui/backends ${OPENGL_INCLUDE_DIR})
+
+add_executable(${PROJECT_NAME}_achs
+    src/main_achs.cpp
+    include/imgui/imgui.cpp 
+    include/imgui/imgui_draw.cpp
+    include/imgui/imgui_tables.cpp
+    include/imgui/imgui_widgets.cpp
+    include/imgui/backends/imgui_impl_glfw.cpp
+    include/imgui/backends/imgui_impl_opengl3.cpp
+)
+target_link_libraries(${PROJECT_NAME}_achs ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_achs glfw)
+target_link_libraries(${PROJECT_NAME}_achs ${OPENGL_gl_LIBRARY})
+target_link_libraries(${PROJECT_NAME}_achs ${OPENGL_glu_LIBRARY})
+target_include_directories(${PROJECT_NAME}_achs PUBLIC include/imgui include/imgui/backends ${OPENGL_INCLUDE_DIR})
+
+add_executable(${PROJECT_NAME}_sf
+    src/main_sf.cpp
+    include/imgui/imgui.cpp 
+    include/imgui/imgui_draw.cpp
+    include/imgui/imgui_tables.cpp
+    include/imgui/imgui_widgets.cpp
+    include/imgui/backends/imgui_impl_glfw.cpp
+    include/imgui/backends/imgui_impl_opengl3.cpp
+)
+target_link_libraries(${PROJECT_NAME}_sf ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_sf glfw)
+target_link_libraries(${PROJECT_NAME}_sf ${OPENGL_gl_LIBRARY})
+target_link_libraries(${PROJECT_NAME}_sf ${OPENGL_glu_LIBRARY})
+target_include_directories(${PROJECT_NAME}_sf PUBLIC include/imgui include/imgui/backends ${OPENGL_INCLUDE_DIR})
 
 
 

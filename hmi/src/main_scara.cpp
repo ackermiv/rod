@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 #endif
 
     // Create window with graphics context
-    GLFWwindow* window = glfwCreateWindow(700, 700, "HMI für 6 Achs Roboter", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(700, 700, "HMI für Scara Roboter", NULL, NULL);
     if (window == NULL)
         return 1;
     glfwSetWindowSizeLimits(window, 700, 700, 700, 700);
@@ -98,16 +98,16 @@ int main(int argc, char** argv)
     
     //ROS Stuff
     
-    ros::init(argc, argv, "hmi_achs");
-    ros::NodeHandle nh("achs");
+    ros::init(argc, argv, "hmi");
+    ros::NodeHandle nh("scara");
     ros::AsyncSpinner spinner(1);
     spinner.start();
-    static const std::string PLANNING_GROUP = "arm";
+    std::string PLANNING_GROUP = "scara_group";
     moveit::planning_interface::MoveGroupInterface move_group_interface(PLANNING_GROUP);
     moveit_msgs::RobotTrajectory trajectory;
     std::vector<geometry_msgs::Pose> waypoints;
     int speed = 1;
-
+   
     ///////////////
     // Main loop //    
     ///////////////

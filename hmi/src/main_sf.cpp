@@ -22,9 +22,6 @@
 #include <moveit_msgs/CollisionObject.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
 
-
-
-
 #if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
 #pragma comment(lib, "legacy_stdio_definitions")
 #endif
@@ -75,7 +72,7 @@ int main(int argc, char** argv)
 #endif
 
     // Create window with graphics context
-    GLFWwindow* window = glfwCreateWindow(700, 700, "Example HMI for Robotermodellierung", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(700, 700, "HMI für Standford Roboter", NULL, NULL);
     if (window == NULL)
         return 1;
     glfwSetWindowSizeLimits(window, 700, 700, 700, 700);
@@ -105,52 +102,12 @@ int main(int argc, char** argv)
     ros::NodeHandle nh("sf");
     ros::AsyncSpinner spinner(1);
     spinner.start();
-    static const std::string PLANNING_GROUP = "standford_arm_group_controller";
+    static const std::string PLANNING_GROUP = "standford_arm_group";
     moveit::planning_interface::MoveGroupInterface move_group_interface(PLANNING_GROUP);
     moveit_msgs::RobotTrajectory trajectory;
     std::vector<geometry_msgs::Pose> waypoints;
     int speed = 1;
    
-
-     // Define a sequence of target positions
-    std::vector<std::vector<double>> target_positions = {
-      {1, -0.4, 1.2, 0, 0, 1.57},  // Target position 1
-      {1-0.25 , 1-0.4, 0.05, 0, 0, -1.57},  // Target position 2
-      {1-0.25 , 1.3, 0.2, 0, 0, 1.57},  // Target position 3
-      {1.25 , 1.3, 0.05, 0, 0, -1.57},  // Target position 4
-      {1.25 , 1-0.3, 0.2, 0, 0, 1.57},  // Target position 5
-    };
-
-    // moves to all the specified targets
-    for (const auto& target_pos : target_positions)
-    {
-        geometry_msgs::PoseStamped cp = move_group_interface.getCurrentPose();
-        waypoints.clear();
-        geometry_msgs::Pose target = cp.pose;
-        target.position.x = target_pos[0];
-        target.position.y = target_pos[1];
-        target.position.z = target_pos[2];
-        waypoints.push_back(target);
-        moveit_msgs::RobotTrajectory trajectory;
-        const double jump_threshold = 0.0;
-        const double eef_step = 0.01;
-        double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
-        move_group_interface.asyncExecute(trajectory);    
-        //move_group_interface.waitForExecution();
-
-        // Wait until the target pose and current pose are close enough
-        double distance_threshold = 0.01; // Adjust this threshold as needed
-        double current_distance = calculatePoseDistance(move_group_interface.getCurrentPose().pose, target);
-
-        while (current_distance > distance_threshold)
-        {
-            current_distance = calculatePoseDistance(move_group_interface.getCurrentPose().pose, target);
-            ros::Duration(0.1).sleep();
-        }
-
-    }
-
-
     ///////////////
     // Main loop //    
     ///////////////

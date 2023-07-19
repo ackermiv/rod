@@ -12,8 +12,19 @@
     </include>
 
     <!-- hmi -->
-    <node pkg="hmi" type="hmi" name="hmi_node" output="screen">
+    <node pkg="hmi" type="hmi_scara" name="hmi_scara" output="screen">
     <rosparam command="load" file="$(find rod_gruppe9)/config/kinematics.yaml" />
     </node>
+
+    <!-- hmi -->
+    <node pkg="hmi" type="hmi_sf" name="hmi_sf" output="screen">
+    <rosparam command="load" file="$(find rod_gruppe9)/config/kinematics.yaml" />
+    </node>
+
+    <!-- hmi -->
+    <node pkg="hmi" type="hmi_achs" name="hmi_achs" output="screen">
+    <rosparam command="load" file="$(find rod_gruppe9)/config/kinematics.yaml" />
+    </node>
+
 
 </launch>
