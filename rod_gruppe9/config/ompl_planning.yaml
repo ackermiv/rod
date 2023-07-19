@@ -223,7 +223,7 @@ arm:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(joint_1,joint_2)
+  projection_evaluator: joints(joint_1_6achs,joint_2_6achs)
   longest_valid_segment_fraction: 0.005
 standford_arm_group:
   default_planner_config: RRT

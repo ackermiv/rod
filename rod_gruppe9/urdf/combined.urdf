@@ -360,7 +360,7 @@
         <parent link="link_3" />
         <child link="link_4" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.57" upper="1.57" effort="200" velocity="3" />
+        <limit lower="-2" upper="2" effort="200" velocity="3" />
     </joint>
     <link name="link_5">
         <inertial>
@@ -384,7 +384,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="joint_5" type="revolute">
+    <joint name="joint_5" type="continuous">
         <origin xyz="-0.0006972 0.049426 0" rpy="-1.5835 1.5708 0" />arm
         <parent link="link_4" />
         <child link="link_5" />
@@ -574,7 +574,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="joint_1_6achs" type="revolute">
+    <joint name="joint_1_6achs" type="continuous">
         <origin xyz="0 0 0.02" rpy="1.5708 0 -0.004171" />
         <parent link="base_link_6achs" />
         <child link="link_1_6achs" />
@@ -637,7 +637,7 @@
         <parent link="link_2_6achs" />
         <child link="link_3_6achs" />
         <axis xyz="0 0 1" />
-        <limit lower="0" upper="3.142" effort="200" velocity="3" />
+        <limit lower="-1" upper="3.842" effort="200" velocity="3" />
     </joint>
     <link name="link_4_6achs">
         <inertial>
@@ -661,7 +661,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="joint_4_6achs" type="revolute">
+    <joint name="joint_4_6achs" type="continuous">
         <origin xyz="0.2 0 -0.0008228" rpy="0 1.5708 0" />
         <parent link="link_3_6achs" />
         <child link="link_4_6achs" />
@@ -719,7 +719,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="joint_6_6achs" type="revolute">
+    <joint name="joint_6_6achs" type="continuous">
         <origin xyz="0.034928 -0.00014279 0.00022572" rpy="-1.5708 0.7854 -1.5749" />
         <parent link="link_5_6achs" />
         <child link="link_6_6achs" />
