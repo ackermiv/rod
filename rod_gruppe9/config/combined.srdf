@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="combined_robot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="scara_group">
+        <joint name="base_joint"/>
+        <joint name="joint1"/>
+        <joint name="joint2"/>
+        <joint name="joint3"/>
+        <joint name="joint4"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="zero_pose" group="scara_group">
+        <joint name="joint1" value="0"/>
+        <joint name="joint2" value="0"/>
+        <joint name="joint3" value="0"/>
+        <joint name="joint4" value="0"/>
+    </group_state>
+    <group_state name="test_pose" group="scara_group">
+        <joint name="joint1" value="-1.57"/>
+        <joint name="joint2" value="-1.57"/>
+        <joint name="joint3" value="-0.1"/>
+        <joint name="joint4" value="-1.57"/>
+    </group_state>
+
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="link1" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link3" reason="Never"/>
+    <disable_collisions link1="base_link" link2="tool" reason="Never"/>
+    <disable_collisions link1="link1" link2="link2" reason="Adjacent"/>
+    <disable_collisions link1="link2" link2="link3" reason="Adjacent"/>
+    <disable_collisions link1="link2" link2="tool" reason="Never"/>
+    <disable_collisions link1="link3" link2="tool" reason="Adjacent"/>
+
+
+
+
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="arm">
+        <joint name="joint_1_6achs"/>
+        <joint name="joint_2_6achs"/>
+        <joint name="joint_3_6achs"/>
+        <joint name="joint_4_6achs"/>
+        <joint name="joint_5_6achs"/>
+        <joint name="joint_6_6achs"/>
+        <joint name="joint_7_6achs"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="zero_pose" group="arm">
+        <joint name="joint_1_6achs" value="0"/>
+        <joint name="joint_2_6achs" value="0"/>
+        <joint name="joint_3_6achs" value="0"/>
+        <joint name="joint_4_6achs" value="0"/>
+        <joint name="joint_5_6achs" value="0"/>
+        <joint name="joint_6_6achs" value="0"/>
+    </group_state>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link_6achs" link2="link_1_6achs" reason="Adjacent"/>
+    <disable_collisions link1="base_link_6achs" link2="link_2_6achs" reason="Never"/>
+    <disable_collisions link1="base_link_6achs" link2="link_3_6achs" reason="Never"/>
+    <disable_collisions link1="base_link_6achs" link2="link_4_6achs" reason="Never"/>
+    <disable_collisions link1="base_link_6achs" link2="link_5_6achs" reason="Never"/>
+    <disable_collisions link1="base_link_6achs" link2="link_6_6achs" reason="Never"/>
+    <disable_collisions link1="base_link_6achs" link2="link_7_6achs" reason="Never"/>
+    <disable_collisions link1="link_1_6achs" link2="link_2_6achs" reason="Adjacent"/>
+    <disable_collisions link1="link_1_6achs" link2="link_3_6achs" reason="Never"/>
+    <disable_collisions link1="link_1_6achs" link2="link_4_6achs" reason="Never"/>
+    <disable_collisions link1="link_1_6achs" link2="link_5_6achs" reason="Never"/>
+    <disable_collisions link1="link_1_6achs" link2="link_6_6achs" reason="Never"/>
+    <disable_collisions link1="link_1_6achs" link2="link_7_6achs" reason="Never"/>
+    <disable_collisions link1="link_2_6achs" link2="link_3_6achs" reason="Adjacent"/>
+    <disable_collisions link1="link_2_6achs" link2="link_4_6achs" reason="Never"/>
+    <disable_collisions link1="link_2_6achs" link2="link_5_6achs" reason="Never"/>
+    <disable_collisions link1="link_2_6achs" link2="link_6_6achs" reason="Never"/>
+    <disable_collisions link1="link_2_6achs" link2="link_7_6achs" reason="Never"/>
+    <disable_collisions link1="link_3_6achs" link2="link_4_6achs" reason="Adjacent"/>
+    <disable_collisions link1="link_3_6achs" link2="link_5_6achs" reason="Never"/>
+    <disable_collisions link1="link_3_6achs" link2="link_6_6achs" reason="Never"/>
+    <disable_collisions link1="link_3_6achs" link2="link_7_6achs" reason="Never"/>
+    <disable_collisions link1="link_4_6achs" link2="link_5_6achs" reason="Adjacent"/>
+    <disable_collisions link1="link_4_6achs" link2="link_6_6achs" reason="Never"/>
+    <disable_collisions link1="link_4_6achs" link2="link_7_6achs" reason="Never"/>
+    <disable_collisions link1="link_5_6achs" link2="link_6_6achs" reason="Adjacent"/>
+    <disable_collisions link1="link_5_6achs" link2="link_7_6achs" reason="Never"/>
+    <disable_collisions link1="link_6_6achs" link2="link_7_6achs" reason="Adjacent"/>
+
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="standford_arm_group">
+        <joint name="joint_1"/>
+        <joint name="joint_2"/>
+        <joint name="joint_3"/>
+        <joint name="joint_4"/>
+        <joint name="joint_5"/>
+    </group>
+    <group name="standford_hand">
+        <joint name="joint_6a"/>
+        <joint name="joint_6b"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="standford_zero" group="standford_arm_group">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="0"/>
+        <joint name="joint_3" value="0"/>
+        <joint name="joint_4" value="0"/>
+        <joint name="joint_5" value="0"/>
+    </group_state>
+    <group_state name="standford_hand_closed" group="standford_hand">
+        <joint name="joint_6a" value="0"/>
+        <joint name="joint_6b" value="0"/>
+    </group_state>
+    <group_state name="standford_hand_open" group="standford_hand">
+        <joint name="joint_6a" value="-0.01"/>
+        <joint name="joint_6b" value="0.01"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="standford_hand_ee" parent_link="link_5" group="standford_hand"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link_stand" link2="link_1" reason="Adjacent"/>
+    <disable_collisions link1="base_link_stand" link2="link_2" reason="Never"/>
+    <disable_collisions link1="base_link_stand" link2="link_3" reason="Never"/>
+    <disable_collisions link1="base_link_stand" link2="link_4" reason="Never"/>
+    <disable_collisions link1="base_link_stand" link2="link_5" reason="Never"/>
+    <disable_collisions link1="base_link_stand" link2="link_6a" reason="Never"/>
+    <disable_collisions link1="base_link_stand" link2="link_6b" reason="Never"/>
+    <disable_collisions link1="link_1" link2="link_2" reason="Adjacent"/>
+    <disable_collisions link1="link_1" link2="link_3" reason="Never"/>
+    <disable_collisions link1="link_1" link2="link_4" reason="Never"/>
+    <disable_collisions link1="link_1" link2="link_5" reason="Never"/>
+    <disable_collisions link1="link_1" link2="link_6a" reason="Never"/>
+    <disable_collisions link1="link_1" link2="link_6b" reason="Never"/>
+    <disable_collisions link1="link_2" link2="link_3" reason="Adjacent"/>
+    <disable_collisions link1="link_2" link2="link_4" reason="Never"/>
+    <disable_collisions link1="link_2" link2="link_5" reason="Never"/>
+    <disable_collisions link1="link_2" link2="link_6a" reason="Never"/>
+    <disable_collisions link1="link_2" link2="link_6b" reason="Never"/>
+    <disable_collisions link1="link_3" link2="link_4" reason="Adjacent"/>
+    <disable_collisions link1="link_3" link2="link_5" reason="Never"/>
+    <disable_collisions link1="link_3" link2="link_6a" reason="Never"/>
+    <disable_collisions link1="link_3" link2="link_6b" reason="Never"/>
+    <disable_collisions link1="link_4" link2="link_5" reason="Adjacent"/>
+    <disable_collisions link1="link_4" link2="link_6a" reason="Never"/>
+    <disable_collisions link1="link_4" link2="link_6b" reason="Never"/>
+    <disable_collisions link1="link_5" link2="link_6a" reason="Adjacent"/>
+    <disable_collisions link1="link_5" link2="link_6b" reason="Adjacent"/>
+    <disable_collisions link1="link_6a" link2="link_6b" reason="Default"/>
+</robot>

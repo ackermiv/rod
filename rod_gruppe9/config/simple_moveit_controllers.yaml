@@ -1,0 +1,41 @@
+#This is a movit contoller connecting follow_joint_trajectory controller with JointTrajectoryController
+controller_list:
+  - name: robot_arm_controller #scara
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+
+  - name: achs_controller #6achs knickarm
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+    - joint_1_6achs
+    - joint_2_6achs
+    - joint_3_6achs
+    - joint_4_6achs
+    - joint_5_6achs
+    - joint_6_6achs
+    - joint_7_6achs
+
+  - name: standford_arm_group_controller #standford aka stanford arm
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+
+  - name: standford_hand_controller #standford aka stanford endeffektor
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - joint_6a
+      - joint_6b
