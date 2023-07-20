@@ -184,6 +184,20 @@ target_link_libraries(${PROJECT_NAME}_sf ${OPENGL_gl_LIBRARY})
 target_link_libraries(${PROJECT_NAME}_sf ${OPENGL_glu_LIBRARY})
 target_include_directories(${PROJECT_NAME}_sf PUBLIC include/imgui include/imgui/backends ${OPENGL_INCLUDE_DIR})
 
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    include/imgui/imgui.cpp 
+    include/imgui/imgui_draw.cpp
+    include/imgui/imgui_tables.cpp
+    include/imgui/imgui_widgets.cpp
+    include/imgui/backends/imgui_impl_glfw.cpp
+    include/imgui/backends/imgui_impl_opengl3.cpp
+)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} glfw)
+target_link_libraries(${PROJECT_NAME} ${OPENGL_gl_LIBRARY})
+target_link_libraries(${PROJECT_NAME} ${OPENGL_glu_LIBRARY})
+target_include_directories(${PROJECT_NAME} PUBLIC include/imgui include/imgui/backends ${OPENGL_INCLUDE_DIR})
 
 
 ## Declare a C++ library
