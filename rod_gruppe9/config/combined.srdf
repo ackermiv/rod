@@ -128,37 +128,51 @@
         <joint name="joint_4" value="0"/>
         <joint name="joint_5" value="0"/>
     </group_state>
-    <group_state name="standford_anfahr" group="standford_arm_group">
+    <group_state name="standford_anfahr1" group="standford_arm_group">
         <joint name="joint_1" value="0"/>
         <joint name="joint_2" value="-2.07"/>
         <joint name="joint_3" value="-0.2"/>
         <joint name="joint_4" value="0.5"/>
         <joint name="joint_5" value="0"/>
+    </group_state>
+    <group_state name="standford_anfahr2" group="standford_arm_group">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="-2.27"/>
+        <joint name="joint_3" value="-0.01"/>
+        <joint name="joint_4" value="0.7"/>
+        <joint name="joint_5" value="0"/>
+    </group_state>        
+    <group_state name="standford_anfahr3" group="standford_arm_group">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="-2.17"/>
+        <joint name="joint_3" value="0.005"/>
+        <joint name="joint_4" value="0.6"/>
+        <joint name="joint_5" value="0"/>
     </group_state>    
     <group_state name="standford_bauteil" group="standford_arm_group">
         <joint name="joint_1" value="0"/>
-        <joint name="joint_2" value="-2.07"/>
-        <joint name="joint_3" value="0"/>
-        <joint name="joint_4" value="0.5"/>
+        <joint name="joint_2" value="-2.17"/>
+        <joint name="joint_3" value="0.008"/>
+        <joint name="joint_4" value="0.6"/>
         <joint name="joint_5" value="0"/>
-    </group_state>     
+    </group_state>
+    <group_state name="standford_egal" group="standford_arm_group">
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="-1.07"/>
+        <joint name="joint_3" value="0"/>
+        <joint name="joint_4" value="-0.5"/>
+        <joint name="joint_5" value="0"/>
+    </group_state>
     <group_state name="standford_weg" group="standford_arm_group">
         <joint name="joint_1" value="1.57"/>
-        <joint name="joint_2" value="1"/>
-        <joint name="joint_3" value="0.3"/>
-        <joint name="joint_4" value="0.57"/>
+        <joint name="joint_2" value="-1"/>
+        <joint name="joint_3" value="0"/>
+        <joint name="joint_4" value="-0.57"/>
         <joint name="joint_5" value="0"/>
     </group_state>    
-    <group_state name="standford_egal" group="standford_arm_group">
-        <joint name="joint_1" value="1"/>
-        <joint name="joint_2" value="1"/>
-        <joint name="joint_3" value="0.1"/>
-        <joint name="joint_4" value="1"/>
-        <joint name="joint_5" value="1"/>
-    </group_state>
     <group_state name="standford_hand_closed" group="standford_hand">
         <joint name="joint_6a" value="0"/>
-        <joint name="joint_6b" value="0.0003"/>
+        <joint name="joint_6b" value="0.00001"/>
     </group_state>
     <group_state name="standford_hand_open" group="standford_hand">
         <joint name="joint_6a" value="-0.01"/>
