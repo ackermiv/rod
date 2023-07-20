@@ -89,7 +89,7 @@
     </spherical_coordinates>
     <model name='bauteil'>
       <static>0</static>
-      <pose>1 -0.0 0.4 0 -0 0</pose>
+      <pose>0 -0.0 0.025 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -106,7 +106,7 @@
         <collision name='collision'>
           <geometry>
             <cylinder>
-              <radius>0.05</radius>
+              <radius>0.075</radius>
               <length>0.05</length>
             </cylinder>
           </geometry>
@@ -125,7 +125,7 @@
           </surface>
         </collision>
         <visual name='visual'>
-          <pose>-0.1 0.1 0 1.57 -0 0</pose>
+          <pose>-0.1 0.1 -0.025 1.57 -0 0</pose>
           <geometry>
             <mesh>            
               <scale>0.001 0.001 0.001</scale>
