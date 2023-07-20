@@ -220,7 +220,7 @@
     <!-- A simple fixed joint from our empty world link, to our base. -->
     <!-- The base origin is offset from the world origin. -->
     <joint name="base_joint_stand" type="fixed">
-    <origin xyz="0 -0.4 0" rpy="0 0 0"/>
+    <origin xyz="-0.09 -0.35 0" rpy="0 0 -1.5707964"/>
     <parent link="world"/>
     <child link="base_link_stand"/>        
     </joint>
