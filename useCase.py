@@ -81,7 +81,7 @@ class demo_robot:
         except:
             print("Target not set")
 
-    def setTargetSfHand(self,j6b,j6a):
+    def setTargetSfHand(self,j6a,j6b):
         goal = self.move_group.get_current_joint_values()
 
         goal[0] = j6a
@@ -127,21 +127,26 @@ if __name__ == "__main__":
     scara.setTargetScara(0,0,0,0)
     scara.move()
     
-    sf_hand.setTargetSfHand(0,0.00001)
+    sf_hand.setTargetSfHand(-0.01,0.01)
+    sf_hand.setTargetSfHand(-0.01,0.01)
     sf_hand.move()
 
     sf.setTargetStandford(0,0,0,0,0)
-    sf.setTargetStandford(0,-2.07,-0.2,0.5,0)
-    sf.setTargetStandford(0,-2.27,-0.1,0.7,0)
+    sf.setTargetStandford(0,-tau/4,-0.038,0,0)
+    sf.setTargetStandford(0,-tau/4-0.5,-0.038,0.5,0)
+    sf.setTargetStandford(0,-2.27,-0.01,0.7,0)
     sf.setTargetStandford(0,-2.17,0.005,0.6,0)
     sf.setTargetStandford(0,-2.17,0.008,0.6,0)
     sf.move()
 
-    sf_hand.setTargetSfHand(-0.01,0.01)
+    sf_hand.setTargetSfHand(0,0.00001)
     sf_hand.move()
 
-    sf.setTargetStandford(0,-1.07,0,0.5,0)
-    sf.setTargetStandford(1.57,-1.07,0,0.5,0)
+    sf.move_group.set_max_acceleration_scaling_factor(0.4)
+    sf.move_group.set_max_velocity_scaling_factor(0.4)
+    
+    sf.setTargetStandford(0,-1.07,0.0,-0.5,0)
+    sf.setTargetStandford(1.57,-1.07,0,-0.5,0)
     sf.move()
 
     del scara
