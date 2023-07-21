@@ -81,6 +81,18 @@ class demo_robot:
         except:
             print("Target not set")
 
+    def setTargetSfHand(self,j6b,j6a):
+        goal = self.move_group.get_current_joint_values()
+
+        goal[0] = j6a
+        goal[1] = j6b
+
+        try:
+            self.goals.append(copy.deepcopy(goal))
+    
+        except:
+            print("Target not set")
+
     def move(self):
 
         self.move_group.clear_pose_targets()
@@ -99,11 +111,39 @@ if __name__ == "__main__":
     scara = demo_robot(nodename="demo_robot",groupname="scara_group")
     achs = demo_robot(nodename="demo_robot",groupname="arm")
     sf = demo_robot(nodename="demo_robot",groupname="standford_arm_group")
+    sf_hand = demo_robot(nodename="demo_robot",groupname="standford_hand")
 
-    scara.setTargetScara(0,-tau/8,0,0)
-    scara.setTargetScara(0,tau/8,0,0)
+    achs.setTarget6Achs(0,0,0,0,0,0)
+    achs.setTarget6Achs(-2.15,0.5,0,0,-1.07,0)
+    achs.setTarget6Achs(-1.969,0.6,-0.173,0,-0.797,0.180)
+    achs.setTarget6Achs(-2.15,0.5,0,0,-1.07,0)
+    achs.setTarget6Achs(0,0,0,0,0,0)
+    achs.move()
+
+    scara.setTargetScara(0,0,0,0)
+    scara.setTargetScara(0.19563,1.2341,0,0)
+    scara.setTargetScara(0.19563,1.2341,0.05,0)
+    scara.setTargetScara(0.19563,1.2341,0,0)
+    scara.setTargetScara(0,0,0,0)
     scara.move()
     
+    sf_hand.setTargetSfHand(0,0.00001)
+    sf_hand.move()
+
+    sf.setTargetStandford(0,0,0,0,0)
+    sf.setTargetStandford(0,-2.07,-0.2,0.5,0)
+    sf.setTargetStandford(0,-2.27,-0.1,0.7,0)
+    sf.setTargetStandford(0,-2.17,0.005,0.6,0)
+    sf.setTargetStandford(0,-2.17,0.008,0.6,0)
+    sf.move()
+
+    sf_hand.setTargetSfHand(-0.01,0.01)
+    sf_hand.move()
+
+    sf.setTargetStandford(0,-1.07,0,0.5,0)
+    sf.setTargetStandford(1.57,-1.07,0,0.5,0)
+    sf.move()
+
     del scara
     del achs
     del sf
