@@ -10,12 +10,8 @@
 	<param name="robot_description" textfile="$(find rod_gruppe9)/urdf/combined.urdf"/>
 
 	<!--spawn a empty gazebo world-->
- 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find rod_gruppe9)/gazebo/kein_bauteil.world"/> 
-        <arg name="gui" value="true" />
-        <arg name="use_sim_time" value="true" />
-        <arg name="paused" value="false" />
-    </include> 
+ 	<include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
 
 	<node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
 

@@ -1,0 +1,28 @@
+project for Robotermodellierung at UAS Technikum Wien by Ackermann, Popek and Solé 
+----------------------------------------------------------------------------------
+
+Environment:
+    Copy the folders into your catkin workspace. (make sure the hmi does not conflict with any other instances of hmi.) Compile the project using
+
+    catkin_make
+
+    If your installation does not compile the project please use the Docker provided with the Dockerfile.
+
+
+
+There are two relevant launchfiles:
+    with physics simulation:
+ 
+    roslaunch rod_gruppe9 combined_greifen.launch
+    
+
+    with parts fixed to endeffector:
+
+    roslaunch rod_gruppe9 combined.launch
+
+
+execute the workflow simulation: 
+    navigate to the folder containing useCase.py . Start the script with
+
+    Python3 useCase.py
+
