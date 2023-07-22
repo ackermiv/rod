@@ -26,15 +26,10 @@ class demo_robot:
         self.goals = []
 
     def getPoseAndPrint(self):
-        self.cp = self.move_group.get_current_pose().pose
-        print("Info: current pose ")
-        print("x: ",self.cp.position.x)
-        print("y: ",self.cp.position.y)
-        print("z: ",self.cp.position.z)
-        print("qx: ",self.cp.orientation.x)
-        print("qy: ",self.cp.orientation.y)
-        print("qz: ",self.cp.orientation.z)
-        print("qw: ",self.cp.orientation.w)
+        self.cp = self.move_group.get_current_joint_values()
+        print("Info: current joint ")
+        for i in self.cp:
+            print("joint ", i)
 
     def setTargetScara(self,j1,j2,j3,j4):
         goal = self.move_group.get_current_joint_values()
